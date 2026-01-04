@@ -20,8 +20,8 @@ jobs:
         uses: einaregilsson/beanstalk-deploy@v18
         with:
         
-          application_name: docker-gh
-          environment_name: Dockergh-env
+          application_name: frontend
+          environment_name: Frontend-env
           existing_bucket_name: elasticbeanstalk-eu-north-1-400792111125
           region: eu-north-1
           version_label: ${{ github.sha }}
