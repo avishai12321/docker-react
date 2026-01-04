@@ -10,11 +10,11 @@ jobs:
     steps:
       - uses: actions/checkout@v3
       - run: docker login -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-      - run: docker build -t avishai/react-test -f Dockerfile.dev .
+      - run: docker build -t avishai/react-test -f Dockerfile .
       - run: docker run -e CI=true avishai/react-test npm test
 
       - name: Generate deployment package
-        run: zip -r deploy.zip . -x "node_modules/*" -x ".git/*" -x "Dockerfile.dev"
+        run: zip -r deploy.zip . -x "node_modules/*" -x ".git/*" -x "Dockerfile"
 
       - name: Deploy to EB
         uses: einaregilsson/beanstalk-deploy@v18
